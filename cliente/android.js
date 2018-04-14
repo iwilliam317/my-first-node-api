@@ -1,6 +1,15 @@
 const http = require('http');
 
-http.get('http://localhost:3000', function(res){
+const options = {
+  hostname: 'localhost',
+  port: '3000',
+  path: '/',  
+  headers : {
+    'Accept': 'application/json'
+  }
+}
+
+http.get(options, function(res){
 
   let buffer_body_response = [];
 
