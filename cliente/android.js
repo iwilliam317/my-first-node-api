@@ -7,11 +7,14 @@ const options = {
   method: 'post',
   headers : {
     'Accept': 'application/json',
-    'Content-type': 'application/x-www-form-urlencoded'
+    'Content-type': 'application/json'
   }
 }
 
-let html_post = "name=william";
+//Content-type
+let html_post = "name=william";  //x-www-form-urlenconded
+let json_post = { name: 'william' } //json
+
 let req = http.request(options, function(res){
 
   let buffer_body_response = [];
@@ -28,5 +31,6 @@ let req = http.request(options, function(res){
 
 });
 //sending data x-www-form-urlencoded 
-req.write(html_post);
+//stringy converts json to string 
+req.write(JSON.stringify(json_post));
 req.end();
