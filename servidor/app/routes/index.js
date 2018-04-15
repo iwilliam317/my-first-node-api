@@ -16,4 +16,11 @@ module.exports = function(application){
         });
 
 	});
+
+  application.post('/', (req, res) => {
+    let data = req.body;
+ 
+    res.send(data);
+  });
+
 }
