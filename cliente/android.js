@@ -4,12 +4,15 @@ const options = {
   hostname: 'localhost',
   port: '3000',
   path: '/',  
+  method: 'post',
   headers : {
-    'Accept': 'application/json'
+    'Accept': 'application/json',
+    'Content-type': 'application/x-www-form-urlencoded'
   }
 }
 
-http.get(options, function(res){
+let html_post = "name=william";
+let req = http.request(options, function(res){
 
   let buffer_body_response = [];
 
@@ -24,3 +27,6 @@ http.get(options, function(res){
   });
 
 });
+//sending data x-www-form-urlencoded 
+req.write(html_post);
+req.end();
