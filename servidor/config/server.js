@@ -35,8 +35,14 @@ consign()
 	.into(app);
 
 /* middleware que configura as páginas de erro */
-app.use(function(req, res, next){
+app.use((req, res, next) => {
   res.status(404).render('errors/404');
+  next();
+})
+
+/* middleware que configura as mensagens de erro interno, se houver o erro o servidor não para */
+app.use((error, req, res, next) => {
+  res.status(500).render('errors/500');
   next();
 })
 

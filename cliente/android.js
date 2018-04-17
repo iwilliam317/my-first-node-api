@@ -3,8 +3,8 @@ const http = require('http');
 const options = {
   hostname: 'localhost',
   port: '3000',
-  path: '/teste',  
-  method: 'post',
+  path: '/',  
+  method: 'get',
   headers : {
     'Accept': 'application/json',
     'Content-type': 'application/json'
@@ -37,5 +37,5 @@ let req = http.request(options, function(res){
 });
 //sending data x-www-form-urlencoded 
 //stringy converts json to string 
-req.write(string_json_post);
+// req.write(string_json_post);
 req.end();
